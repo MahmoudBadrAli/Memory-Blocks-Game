@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/png" href="/icons/favicon.png" />
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="main.css" />
+    <title>Memory Blocks Game</title>
+  </head>
+  <body>
+    <div class="control-buttons">
+      <span class="start-game">New Game</span>
+      <span class="leaderboard-button">Leaderboard</span>
+      <div class="how-to-play-container">
+        <span class="how-to-play-text">How To Play?</span>
+        <div class="language-options">
+          <span class="lang-btn" data-lang="en">English</span>
+          <span class="lang-divider">|</span>
+          <span class="lang-btn" data-lang="ar">العربية</span>
+        </div>
+      </div>
+    </div>
+    <div class="loading-dots hidden">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <div class="info-container">
+      <div class="name">Hello: <span></span></div>
+      <div class="category">Category: <span></span></div>
+      <div class="countdown"></div>
+      <div class="points">Points: <span>0</span></div>
+      <div class="tries">Wrong Tries: <span>0</span></div>
+    </div>
+    <div class="images-container">
+      <div class="animals">
+        <img src="images/animals/chicken.png" alt="" />
+        <img src="images/animals/dolphin.png" alt="" />
+        <img src="images/animals/elephant.png" alt="" />
+        <img src="images/animals/owl.png" alt="" />
+        <img src="images/animals/panda-bear.png" alt="" />
+        <img src="images/animals/parrot.png" alt="" />
+        <img src="images/animals/penguin.png" alt="" />
+        <img src="images/animals/pig.png" alt="" />
+        <img src="images/animals/squirrel.png" alt="" />
+        <img src="images/animals/turtle.png" alt="" />
+      </div>
+      <div class="countries">
+        <img src="images/countries/australia.png" alt="" />
+        <img src="images/countries/bahrain.png" alt="" />
+        <img src="images/countries/brazil-.png" alt="" />
+        <img src="images/countries/canada.png" alt="" />
+        <img src="images/countries/china.png" alt="" />
+        <img src="images/countries/egypt.png" alt="" />
+        <img src="images/countries/spain.png" alt="" />
+        <img src="images/countries/Kingdom-of-Saudi-Arabia.png" alt="" />
+        <img src="images/countries/Iraq.png" alt="" />
+        <img src="images/countries/qatar.png" alt="" />
+        <img src="images/countries/India.png" alt="" />
+        <img src="images/countries/france.png" alt="" />
+        <img src="images/countries/germany.png" alt="" />
+        <img src="images/countries/italy.png" alt="" />
+        <img src="images/countries/japan.png" alt="" />
+        <img src="images/countries/palestine.png" alt="" />
+        <img src="images/countries/singapore.png" alt="" />
+        <img src="images/countries/sudan.png" alt="" />
+        <img src="images/countries/syria.png" alt="" />
+        <img src="images/countries/thailand.png" alt="" />
+        <img src="images/countries/turkey.png" alt="" />
+        <img src="images/countries/united-arab-emirates.png" alt="" />
+        <img src="images/countries/united-kingdom.png" alt="" />
+        <img src="images/countries/united-states.png" alt="" />
+        <img src="images/countries/world.png" alt="" />
+      </div>
+      <div class="emoji">
+        <img src="images/emoji/angry (1).png" alt="" />
+        <img src="images/emoji/confused.png" alt="" />
+        <img src="images/emoji/cool.png" alt="" />
+        <img src="images/emoji/emoji.png" alt="" />
+        <img src="images/emoji/explosion.png" alt="" />
+        <img src="images/emoji/happy-face.png" alt="" />
+        <img src="images/emoji/sad.png" alt="" />
+        <img src="images/emoji/shocked.png" alt="" />
+        <img src="images/emoji/smile.png" alt="" />
+        <img src="images/emoji/wink.png" alt="" />
+      </div>
+      <div class="fruits">
+        <img src="images/fruits/apple.png" alt="" />
+        <img src="images/fruits/avocado.png" alt="" />
+        <img src="images/fruits/bananas.png" alt="" />
+        <img src="images/fruits/cherries.png" alt="" />
+        <img src="images/fruits/dragon-fruit.png" alt="" />
+        <img src="images/fruits/grapes.png" alt="" />
+        <img src="images/fruits/kiwi.png" alt="" />
+        <img src="images/fruits/mango.png" alt="" />
+        <img src="images/fruits/orange.png" alt="" />
+        <img src="images/fruits/passion-fruit.png" alt="" />
+        <img src="images/fruits/pear.png" alt="" />
+        <img src="images/fruits/pineapple.png" alt="" />
+        <img src="images/fruits/pomegranate.png" alt="" />
+        <img src="images/fruits/strawberry.png" alt="" />
+        <img src="images/fruits/watermelon.png" alt="" />
+      </div>
+      <div class="programming">
+        <img src="images/programming/Angular.png" alt="" />
+        <img src="images/programming/C(sharp).png" alt="" />
+        <img src="images/programming/C.png" alt="" />
+        <img src="images/programming/C(plus plus).png" alt="" />
+        <img src="images/programming/CSS3.png" alt="" />
+        <img src="images/programming/Git.png" alt="" />
+        <img src="images/programming/github.png" alt="" />
+        <img src="images/programming/Go.png" alt="Go" />
+        <img src="images/programming/Gulp.js.png" alt="" />
+        <img src="images/programming/HTML5.png" alt="" />
+        <img src="images/programming/Java.png" alt="" />
+        <img src="images/programming/JavaScript.png" alt="" />
+        <img src="images/programming/Jest.png" alt="" />
+        <img src="images/programming/JQuery.png" alt="" />
+        <img src="images/programming/js.png" alt="" />
+        <img src="images/programming/Kotlin.png" alt="" />
+        <img src="images/programming/MongoDB.png" alt="" />
+        <img src="images/programming/MySQL.png" alt="" />
+        <img src="images/programming/Next.js.png" alt="" />
+        <img src="images/programming/PHP.png" alt="" />
+        <img src="images/programming/python.png" alt="" />
+        <img src="images/programming/react.png" alt="" />
+        <img src="images/programming/Rust.png" alt="" />
+        <img src="images/programming/Sass.png" alt="" />
+        <img src="images/programming/Swift.png" alt="" />
+        <img src="images/programming/TypeScript.png" alt="" />
+        <img src="images/programming/Visual Studio Code (VS Code).png" alt="" />
+        <img src="images/programming/Visual Studio.png" alt="" />
+        <img src="images/programming/Vue.js.png" alt="" />
+        <img src="images/programming/Yii Framework.png" alt="" />
+      </div>
+      <div class="socialMedia">
+        <img src="images/social media/discord.png" alt="" />
+        <img src="images/social media/facebook (1).png" alt="" />
+        <img src="images/social media/instagram.png" alt="" />
+        <img src="images/social media/pinterest.png" alt="" />
+        <img src="images/social media/snapchat.png" alt="" />
+        <img src="images/social media/telegram.png" alt="" />
+        <img src="images/social media/tiktok (1).png" alt="" />
+        <img src="images/social media/twitter.png" alt="" />
+        <img src="images/social media/whatsapp.png" alt="" />
+        <img src="images/social media/youtube.png" alt="" />
+      </div>
+      <div class="sports">
+        <img src="images/sports/american-football.png" alt="" />
+        <img src="images/sports/badminton.png" alt="" />
+        <img src="images/sports/basketball.png" alt="" />
+        <img src="images/sports/bicycle.png" alt="" />
+        <img src="images/sports/boxing-gloves.png" alt="" />
+        <img src="images/sports/dumbbell.png" alt="" />
+        <img src="images/sports/football.png" alt="" />
+        <img src="images/sports/hockey.png" alt="" />
+        <img src="images/sports/horse.png" alt="" />
+        <img src="images/sports/mountain-hiking.png" alt="" />
+        <img src="images/sports/ski.png" alt="" />
+        <img src="images/sports/sport.png" alt="" />
+        <img src="images/sports/swimming.png" alt="" />
+        <img src="images/sports/tennis-balls.png" alt="" />
+        <img src="images/sports/volleyball.png" alt="" />
+      </div>
+      <div class="tools">
+        <img src="images/tools/Adobe Premiere Pro.png" alt="" />
+        <img src="images/tools/after-effects.png" alt="" />
+        <img src="images/tools/Android.png" alt="" />
+        <img src="images/tools/Apple Safari.png" alt="" />
+        <img src="images/tools/Apple.png" alt="" />
+        <img src="images/tools/AWS.png" alt="" />
+        <img src="images/tools/Behance.png" alt="" />
+        <img src="images/tools/Chrome.png" alt="" />
+        <img src="images/tools/Figma.png" alt="" />
+        <img src="images/tools/Firefox.png" alt="" />
+        <img src="images/tools/Google.png" alt="" />
+        <img src="images/tools/LinkedIn.png" alt="" />
+        <img src="images/tools/Linux.png" alt="" />
+        <img src="images/tools/Opera.png" alt="" />
+        <img src="images/tools/photoshop.png" alt="" />
+      </div>
+      <div class="vegetables">
+        <img src="images/vegetables/bell-pepper.png" alt="" />
+        <img src="images/vegetables/broccoli.png" alt="" />
+        <img src="images/vegetables/cabbage.png" alt="" />
+        <img src="images/vegetables/carrot.png" alt="" />
+        <img src="images/vegetables/chili-pepper.png" alt="" />
+        <img src="images/vegetables/corn.png" alt="" />
+        <img src="images/vegetables/cucumber.png" alt="" />
+        <img src="images/vegetables/eggplant.png" alt="" />
+        <img src="images/vegetables/mushrooms.png" alt="" />
+        <img src="images/vegetables/onion.png" alt="" />
+        <img src="images/vegetables/pea.png" alt="" />
+        <img src="images/vegetables/potato.png" alt="" />
+        <img src="images/vegetables/pumpkin.png" alt="" />
+        <img src="images/vegetables/spinach.png" alt="" />
+        <img src="images/vegetables/tomato.png" alt="" />
+      </div>
+    </div>
+    <div class="memory-game-blocks"></div>
+    <div class="leaderboard-container hidden" id="leaderboard">
+      <div class="leaderboard-header">
+        <h2>🎮 Leaderboard</h2>
+        <p>Top players and their achievements</p>
+      </div>
+
+      <div class="leaderboard-controls hidden">
+        <button class="control-btn danger hidden">Clear All</button>
+        <button class="control-btn menu hidden">Back to Menu</button>
+      </div>
+
+      <div class="leaderboard-content hidden">
+        <table class="leaderboard-table">
+          <thead>
+            <tr>
+              <th>Rank</th>
+              <th>Player</th>
+              <th>ID</th>
+              <th>Category</th>
+              <th>Time Left</th>
+              <th>Points</th>
+              <th>Tries</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+
+      <div class="empty-state">
+        <div class="empty-state-icon">🎮</div>
+        <h3>No Games Played Yet</h3>
+        <p>
+          Start playing to see your scores on the leaderboard!<br />Challenge
+          your friends and climb to the top!
+        </p>
+        <button class="control-btn menu hidden">Back to Menu</button>
+      </div>
+    </div>
+    <div class="sounds">
+      <audio id="click" src="sounds/click.mp3" preload="auto"></audio>
+      <audio id="start-game" src="sounds/start game.mp3" preload="auto"></audio>
+      <audio id="success" src="sounds/success.mp3" preload="auto"></audio>
+      <audio id="fail" src="sounds/fail.mp3" preload="auto"></audio>
+      <audio
+        id="good-result"
+        src="sounds/goodresult.mp3"
+        preload="auto"
+      ></audio>
+      <audio
+        id="last-minutes"
+        src="sounds/last minutes.mp3"
+        preload="auto"
+      ></audio>
+      <audio id="timeout" src="sounds/timeout.mp3" preload="auto"></audio>
+    </div>
+    <script src="main.js"></script>
+  </body>
+</html>
