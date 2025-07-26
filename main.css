@@ -994,7 +994,7 @@ body {
 
   .memory-game-blocks .game-block .back,
   .memory-game-blocks .game-block .face {
-    border-radius: 12px;
+    border-radius: 16px;
   }
 
   .memory-game-blocks .game-block .back img,
