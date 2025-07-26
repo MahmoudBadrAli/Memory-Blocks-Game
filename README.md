@@ -28,15 +28,26 @@ Special thanks to [**Osama Elzero**](https://www.facebook.com/OsElzero/) for mak
 ✅ **9 Unique Categories**
 🐾 Animals, 🧑‍💻 Programming, 🌍 Countries, 🛠 Tools, 🏀 Sports, 🍎 Fruits, 🥦 Vegetables, 😃 Emojis, and more in the future!
 
+🔁 **Same Player Replay**
+Start a new game instantly with the same player name — great for improving your previous score or challenging yourself with new categories.
+
+🆔 **Unique Player ID Generation**
+Every player gets a unique ID saved with their record in the leaderboard — ensuring identity consistency and fun comparisons.
+
+📊 **Smart Leaderboard Sorting**
+Leaderboard auto-sorts by points, time left, and tries — letting you see who's truly the best.
+
+📌 **Clear/Reset Scores Option**
+Easily clear leaderboard data with a confirmation popup. Your data is safe unless you choose otherwise.
+
 🕒 **Category-Based Countdown Timer**
 Every category has a different time limit based on difficulty — adding excitement and variety to every round.
 
 🎮 **Real-Time Leaderboard**
 Your score, tries, category, and time left are saved and displayed beautifully. Compete with yourself and others locally (saved in LocalStorage).
 
-💬 **Multilingual Instructions**
-Supports **English 🇬🇧** and **Arabic 🇪🇬** for the *How to Play* section.  
-Players can choose their preferred language before reading the rules.
+💬 **Language Toggle for Instructions**
+The game supports bilingual instructions in **English 🇬🇧** and **Arabic 🇪🇬**, allowing users to read *How to Play* in their preferred language.
 
 ⚡ **Smooth Animations & Transitions**
 Thanks to **Animate.css**, every action feels responsive and alive — from opening modals to matching cards.
@@ -146,3 +157,4 @@ This project was built using knowledge from the following high-quality resources
 <p align="left">
   <img src="https://upload.wikimedia.org/wikipedia/commons/0/00/Flag_of_Palestine.svg" alt="Palestine Flag" width="75" style="vertical-align: middle; margin-right: 10px;"/>
 </p>
+Gaza is dying of hunger. If you can help, please do not hesitate.
