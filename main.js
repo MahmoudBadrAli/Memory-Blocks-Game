@@ -6,7 +6,7 @@ let pointsElement = document.querySelector(".points span");
 let countdownInterval;
 const timeLimit = {
   animals: 105,
-  countries: 180,
+  countries: 240,
   emoji: 90,
   fruits: 135,
   programming: 210,
