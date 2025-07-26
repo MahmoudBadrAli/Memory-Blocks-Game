@@ -13,6 +13,9 @@ Whether you're into **Animals**, **Fruits**, **Programming**, **Countries**, or 
 
 ---
 
+Try It Yourself: Fully playable in your browser 👉 [Memory Blocks Game](https://mahmoudbadrali.github.io/Memory-Blocks-Game/)
+---
+
 ## Special Thanks
 
 This project was inspired by the incredible content of [**Elzero Web School**](https://www.youtube.com/@ElzeroWebSchool).
