@@ -493,7 +493,7 @@ function checkMatchedBlocks(firstBlock, secondBlock) {
 
     setTimeout(() => {
       Swal.fire({
-        // imageUrl: "icons/congratulation.png",
+        imageUrl: "icons/congratulation.png",
         imageWidth: 84,
         imageHeight: 84,
         title: "🎉 Congratulations!",
@@ -561,7 +561,7 @@ function countdown(duration) {
 
       playAudio("timeout");
       Swal.fire({
-        // imageUrl: "icons/clock.png",
+        imageUrl: "icons/clock.png",
         imageWidth: 84,
         imageHeight: 84,
         title: "Time's Up!",
