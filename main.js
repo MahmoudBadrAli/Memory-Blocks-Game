@@ -5,15 +5,15 @@ let triesElement = document.querySelector(".tries span");
 let pointsElement = document.querySelector(".points span");
 let countdownInterval;
 const timeLimit = {
-  animals: 120,
-  countries: 270,
-  emoji: 120,
-  fruits: 150,
-  programming: 270,
-  socialMedia: 90,
-  sports: 170,
-  tools: 165,
-  vegetables: 195,
+  animals: 105,
+  countries: 180,
+  emoji: 90,
+  fruits: 135,
+  programming: 210,
+  socialMedia: 65,
+  sports: 150,
+  tools: 135,
+  vegetables: 120,
 }; // Time limits for each category in seconds
 let selectedCategory = "";
 let categoryLabel = "";
