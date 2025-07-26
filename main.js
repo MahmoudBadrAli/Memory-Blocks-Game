@@ -5,10 +5,10 @@ let triesElement = document.querySelector(".tries span");
 let pointsElement = document.querySelector(".points span");
 let countdownInterval;
 const timeLimit = {
-  animals: 135,
+  animals: 120,
   countries: 270,
   emoji: 120,
-  fruits: 180,
+  fruits: 150,
   programming: 270,
   socialMedia: 90,
   sports: 170,
