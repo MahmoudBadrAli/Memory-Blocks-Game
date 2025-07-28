@@ -9,7 +9,7 @@ const timeLimit = {
   countries: 240,
   emoji: 90,
   fruits: 135,
-  programming: 210,
+  programming: 270,
   socialMedia: 65,
   sports: 150,
   tools: 135,
@@ -263,6 +263,7 @@ document
                 username = `Unknown${count}`;
               }
             });
+            username = count === 1 ? "Unknown" : `Unknown${count}`;
           } else {
             username = "Unknown";
           }
@@ -462,6 +463,7 @@ function checkMatchedBlocks(firstBlock, secondBlock) {
     secondBlock.classList.add("has-match");
 
     playAudio("success");
+    document.querySelector("#fail").pause() = 0;
   } else {
     triesElement.innerHTML = parseInt(triesElement.innerHTML) + 1;
 
