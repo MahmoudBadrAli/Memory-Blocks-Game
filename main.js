@@ -463,7 +463,11 @@ function checkMatchedBlocks(firstBlock, secondBlock) {
     secondBlock.classList.add("has-match");
 
     playAudio("success");
-    document.querySelector("#fail").pause() = 0;
+    let failSound = document.getElementById("fail");
+    failSound.pause();
+    let lastMinutes = document.getElementById("last-minutes");
+    lastMinutes.pause();
+    clearInterval(countdownInterval);
   } else {
     triesElement.innerHTML = parseInt(triesElement.innerHTML) + 1;
 
