@@ -165,7 +165,8 @@ body {
 
 .control-buttons .start-game,
 .control-buttons .leaderboard-button,
-.control-buttons .how-to-play {
+.control-buttons .how-to-play,
+.control-buttons .old-player {
   background: -o-linear-gradient(45deg, #ff6b6b, #ee5a52);
   background: linear-gradient(45deg, #ff6b6b, #ee5a52);
   color: white;
@@ -193,7 +194,8 @@ body {
 
 .control-buttons .start-game:hover,
 .control-buttons .leaderboard-button:hover,
-.control-buttons .how-to-play:hover {
+.control-buttons .how-to-play:hover,
+.control-buttons .old-player:hover {
   -webkit-transform: translateY(-5px);
   -ms-transform: translateY(-5px);
   transform: translateY(-5px);
@@ -203,7 +205,8 @@ body {
 
 .control-buttons .start-game:active,
 .control-buttons .leaderboard-button:active,
-.control-buttons .how-to-play:active {
+.control-buttons .how-to-play:active,
+.control-buttons .old-player:active {
   -webkit-transform: translateY(2px) scale(0.98);
   -ms-transform: translateY(2px) scale(0.98);
   transform: translateY(2px) scale(0.98);
@@ -561,6 +564,14 @@ body {
   border-color: #0075ff !important;
   -webkit-box-shadow: 0 0 0 3px rgba(0, 117, 255, 0.1) !important;
   box-shadow: 0 0 0 3px rgba(0, 117, 255, 0.1) !important;
+}
+
+.elegant-popup {
+  border-radius: 15px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  animation-duration: 0.4s !important;
+  transform: scale(1) !important;
+  transition: all 0.3s ease-in-out;
 }
 
 .cairo-confirm-button {
@@ -948,7 +959,8 @@ body {
 
   .control-buttons .start-game,
   .control-buttons .leaderboard-button,
-  .control-buttons .how-to-play {
+  .control-buttons .how-to-play,
+  .control-buttons .old-player {
     padding: 18px 30px;
     font-size: 26px;
     min-width: 200px;
@@ -1111,7 +1123,8 @@ body {
 @media (max-width: 480px) {
   .control-buttons .start-game,
   .control-buttons .leaderboard-button,
-  .control-buttons .how-to-play {
+  .control-buttons .how-to-play,
+  .control-buttons .old-player {
     padding: 16px 25px;
     font-size: 24px;
     min-width: 180px;

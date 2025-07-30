@@ -1,11 +1,15 @@
 // Define global variables
+let oldPlayerButton = document.querySelector(".control-buttons .old-player");
 let memoryGameBlocks = document.querySelector(".memory-game-blocks");
 let infoContainer = document.querySelector(".info-container");
 let triesElement = document.querySelector(".tries span");
 let pointsElement = document.querySelector(".points span");
 let countdownInterval;
 const timeLimit = {
-  animals: 105,
+  // Get It Back When You Finish Your Edits ↓
+  // animals: 105,
+  animals: 2,
+
   countries: 240,
   emoji: 90,
   fruits: 135,
@@ -18,6 +22,7 @@ const timeLimit = {
 let selectedCategory = "";
 let categoryLabel = "";
 let lastPlayerId = null; // To store the last player ID for generating unique IDs
+let lastPlayerUsername = null; // To store the last player ID for generating unique IDs
 let inputOptions = {
   animals: "Animals",
   countries: "Countries",
@@ -82,9 +87,9 @@ clearLeaderboardButton.addEventListener("click", () => {
       let deleteWaitTime;
       let players = Array.from(leaderboardTable.children);
       if (players.length <= 5) {
-        deleteWaitTime = 850;
-      } else if (players.length <= 10) {
         deleteWaitTime = 750;
+      } else if (players.length <= 10) {
+        deleteWaitTime = 650;
       } else {
         deleteWaitTime = 500;
       }
@@ -276,6 +281,85 @@ document
     });
   });
 
+// Handle Old Player Button Click
+if (localStorage.getItem("users")) {
+  oldPlayerButton.classList.remove("hidden");
+} else {
+  oldPlayerButton.classList.add("hidden");
+}
+
+oldPlayerButton.addEventListener("click", () => {
+  playAudio("click");
+  Swal.fire({
+    title: "Enter your ID",
+    input: "text",
+    inputLabel: "Please type your ID to continue:",
+    inputPlaceholder: "xxxx",
+    showCancelButton: true,
+    confirmButtonText: "Continue",
+    inputAttributes: {
+      maxlength: 4,
+      inputmode: "numeric",
+      pattern: "\\d{4}",
+    },
+    inputValidator: (value) => {
+      if (!/^\d{4}$/.test(value)) {
+        return "ID must be exactly 4 digits (e.g. 1234)";
+      }
+      let players = JSON.parse(localStorage.getItem("users"));
+      const id = value;
+      let filteredPlayers = players.filter((player) => {
+        return player.id == id;
+      });
+      if (filteredPlayers.length === 0) {
+        return "This ID is not registered. Please try again.";
+      }
+      return null;
+    },
+  }).then((result) => {
+    if (result.isConfirmed) {
+      let players = JSON.parse(localStorage.getItem("users"));
+      const id = result.value;
+      let playerFound = players.find((player) => player.id == id);
+      lastPlayerId = playerFound.id;
+      lastPlayerUsername = playerFound.username;
+      username = playerFound.username;
+      document.querySelector(".loading-dots").classList.remove("hidden");
+      document
+        .querySelectorAll(".control-buttons *")
+        .forEach((button) => button.classList.add("hidden"));
+      let randomTimeArray = [1000, 1500, 2000];
+      let randomTime = Math.floor(Math.random() * randomTimeArray.length);
+      randomMilliseconds = randomTimeArray[randomTime];
+      setTimeout(() => {
+        document
+          .querySelectorAll(".control-buttons *")
+          .forEach((button) => button.classList.remove("hidden"));
+        document.querySelector(".loading-dots").classList.add("hidden");
+
+        Swal.fire({
+          title: `Welcome Back! ${playerFound.username}`,
+          width: 600,
+          padding: "3em",
+          color: "#716add",
+          position: "top",
+          background:
+            "#fff url('https://sweetalert2.github.io/images/trees.png')",
+          showConfirmButton: false,
+          showCancelButton: false,
+          timer: 2000,
+          showClass: {
+            popup: "animate__animated animate__fadeInDown",
+          },
+          hideClass: {
+            popup: "animate__animated animate__fadeOutUp",
+          },
+        }).then(() => mainGame());
+      }, randomMilliseconds);
+    }
+  });
+});
+
 // Handle leaderboard button click
 document
   .querySelector(".control-buttons .leaderboard-button")
@@ -335,8 +419,18 @@ function mainGame(showControlButtons = true) {
     inputOptions: inputOptions,
     inputPlaceholder: "Select a category",
     showCancelButton: true,
+    confirmButtonText: "Go!",
     inputValidator: (value) =>
       value ? undefined : "You need to choose something!",
+    customClass: {
+      popup: "elegant-popup",
+    },
+    showClass: {
+      popup: "animate__animated animate__fadeIn",
+    },
+    hideClass: {
+      popup: "animate__animated animate__fadeOut",
+    },
   }).then((categoryResult) => {
     if (categoryResult.isConfirmed) {
       resetGame(true); // Reload the page to start a new game
@@ -517,7 +611,7 @@ function checkMatchedBlocks(firstBlock, secondBlock) {
         },
         didOpen: () => {
           const samePlayerBtn = document.createElement("button");
-          samePlayerBtn.innerText = "New Player";
+          samePlayerBtn.innerText = "Back To Menu";
 
           samePlayerBtn.className = "swal2-confirm swal2-styled same-player";
           samePlayerBtn.setAttribute("type", "button");
@@ -527,6 +621,7 @@ function checkMatchedBlocks(firstBlock, secondBlock) {
 
           samePlayerBtn.addEventListener("click", () => {
             lastPlayerId = null; // Reset lastPlayerId for new player
+            lastPlayerUsername = null;
             window.location.reload();
           });
         },
@@ -585,7 +680,7 @@ function countdown(duration) {
         },
         didOpen: () => {
           const samePlayerBtn = document.createElement("button");
-          samePlayerBtn.innerText = "New Player";
+          samePlayerBtn.innerText = "Back To Menu";
 
           samePlayerBtn.className = "swal2-confirm swal2-styled same-player";
           samePlayerBtn.setAttribute("type", "button");
@@ -595,6 +690,7 @@ function countdown(duration) {
 
           samePlayerBtn.addEventListener("click", () => {
             lastPlayerId = null; // Reset lastPlayerId for new player
+            lastPlayerUsername = null;
             window.location.reload();
           });
         },
@@ -642,7 +738,7 @@ function playAudio(id) {
 function addUserToArray(username, category, timeLeft, points, tries) {
   // Create a user object
   const user = {
-    username: username,
+    username: lastPlayerUsername ? lastPlayerUsername : username,
     id: lastPlayerId ? lastPlayerId : generateSafeId(),
     category: category,
     timeLeft: timeLeft,
@@ -652,6 +748,7 @@ function addUserToArray(username, category, timeLeft, points, tries) {
 
   // Update lastPlayerId for generating unique IDs
   lastPlayerId = user.id;
+  lastPlayerUsername = user.username;
 
   // Push user to users array
   users.push(user);
