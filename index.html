@@ -1,35 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <!-- Basic HTML5 document setup -->
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Page favicon -->
     <link rel="icon" type="image/png" href="icons/favicon.png" />
-    <!-- SweetAlert2 CSS -->
+
+    <!-- SweetAlert2 library for beautiful popup dialogs -->
     <link
       href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css"
       rel="stylesheet"
     />
-
-    <!-- SweetAlert2 JS -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <!-- Animate.css library for CSS animations -->
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
     />
+
+    <!-- Google Fonts - Cairo font for Arabic/English text -->
     <link
       href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap"
       rel="stylesheet"
     />
+
+    <!-- Custom CSS styles -->
     <link rel="stylesheet" href="main.css" />
+
+    <!-- Page title -->
     <title>Memory Blocks Game</title>
   </head>
   <body>
+    <!-- ===== MAIN MENU CONTROL BUTTONS ===== -->
+    <!-- Container for main menu buttons and options -->
     <div class="control-buttons">
+      <!-- Start new game button -->
       <span class="start-game">New Game</span>
+
+      <!-- Button for returning players (hidden by default) -->
       <span class="old-player hidden">Old Player</span>
+
+      <!-- Button to view leaderboard -->
       <span class="leaderboard-button">Leaderboard</span>
+
+      <!-- How to play section with language options -->
       <div class="how-to-play-container">
+        <!-- How to play button text -->
         <span class="how-to-play-text">How To Play?</span>
+
+        <!-- Language selection options -->
         <div class="language-options">
           <span class="lang-btn" data-lang="en">English</span>
           <span class="lang-divider">|</span>
@@ -37,19 +59,38 @@
         </div>
       </div>
     </div>
+
+    <!-- ===== LOADING ANIMATION ===== -->
+    <!-- Loading dots animation (hidden by default) -->
     <div class="loading-dots hidden">
       <span></span>
       <span></span>
       <span></span>
     </div>
+
+    <!-- ===== GAME INFORMATION DISPLAY ===== -->
+    <!-- Container for game statistics and player info -->
     <div class="info-container">
+      <!-- Player name display -->
       <div class="name">Hello: <span></span></div>
+
+      <!-- Selected category display -->
       <div class="category">Category: <span></span></div>
+
+      <!-- Countdown timer display -->
       <div class="countdown"></div>
+
+      <!-- Points scored display -->
       <div class="points">Points: <span>0</span></div>
+
+      <!-- Wrong attempts counter -->
       <div class="tries">Wrong Tries: <span>0</span></div>
     </div>
+
+    <!-- ===== GAME IMAGES REPOSITORY ===== -->
+    <!-- Hidden container storing all game images organized by category -->
     <div class="images-container">
+      <!-- Animals category images -->
       <div class="animals">
         <img src="images/animals/chicken.png" alt="" />
         <img src="images/animals/dolphin.png" alt="" />
@@ -62,6 +103,8 @@
         <img src="images/animals/squirrel.png" alt="" />
         <img src="images/animals/turtle.png" alt="" />
       </div>
+
+      <!-- Countries category images -->
       <div class="countries">
         <img src="images/countries/australia.png" alt="" />
         <img src="images/countries/bahrain.png" alt="" />
@@ -89,6 +132,8 @@
         <img src="images/countries/united-states.png" alt="" />
         <img src="images/countries/world.png" alt="" />
       </div>
+
+      <!-- Emoji category images -->
       <div class="emoji">
         <img src="images/emoji/angry (1).png" alt="" />
         <img src="images/emoji/confused.png" alt="" />
@@ -101,6 +146,8 @@
         <img src="images/emoji/smile.png" alt="" />
         <img src="images/emoji/wink.png" alt="" />
       </div>
+
+      <!-- Fruits category images -->
       <div class="fruits">
         <img src="images/fruits/apple.png" alt="" />
         <img src="images/fruits/avocado.png" alt="" />
@@ -118,6 +165,8 @@
         <img src="images/fruits/strawberry.png" alt="" />
         <img src="images/fruits/watermelon.png" alt="" />
       </div>
+
+      <!-- Programming technologies category images -->
       <div class="programming">
         <img src="images/programming/Angular.png" alt="" />
         <img src="images/programming/C(sharp).png" alt="" />
@@ -150,6 +199,8 @@
         <img src="images/programming/Vue.js.png" alt="" />
         <img src="images/programming/Yii Framework.png" alt="" />
       </div>
+
+      <!-- Social Media platforms category images -->
       <div class="socialMedia">
         <img src="images/social media/discord.png" alt="" />
         <img src="images/social media/facebook (1).png" alt="" />
@@ -162,6 +213,8 @@
         <img src="images/social media/whatsapp.png" alt="" />
         <img src="images/social media/youtube.png" alt="" />
       </div>
+
+      <!-- Sports category images -->
       <div class="sports">
         <img src="images/sports/american-football.png" alt="" />
         <img src="images/sports/badminton.png" alt="" />
@@ -179,6 +232,8 @@
         <img src="images/sports/tennis-balls.png" alt="" />
         <img src="images/sports/volleyball.png" alt="" />
       </div>
+
+      <!-- Tools and software category images -->
       <div class="tools">
         <img src="images/tools/Adobe Premiere Pro.png" alt="" />
         <img src="images/tools/after-effects.png" alt="" />
@@ -196,6 +251,8 @@
         <img src="images/tools/Opera.png" alt="" />
         <img src="images/tools/photoshop.png" alt="" />
       </div>
+
+      <!-- Vegetables category images -->
       <div class="vegetables">
         <img src="images/vegetables/bell-pepper.png" alt="" />
         <img src="images/vegetables/broccoli.png" alt="" />
@@ -214,62 +271,110 @@
         <img src="images/vegetables/tomato.png" alt="" />
       </div>
     </div>
+
+    <!-- ===== GAME BOARD CONTAINER ===== -->
+    <!-- Container where the game blocks will be dynamically generated -->
     <div class="memory-game-blocks"></div>
+
+    <!-- ===== LEADERBOARD SECTION ===== -->
+    <!-- Container for leaderboard display (hidden by default) -->
     <div class="leaderboard-container hidden" id="leaderboard">
+      <!-- Leaderboard header with title and description -->
       <div class="leaderboard-header">
         <h2>🎮 Leaderboard</h2>
         <p>Top players and their achievements</p>
       </div>
 
+      <!-- Control buttons for leaderboard actions -->
       <div class="leaderboard-controls hidden">
+        <!-- Button to clear all leaderboard data -->
         <button class="control-btn danger hidden">Clear All</button>
+
+        <!-- Button to return to main menu -->
         <button class="control-btn menu hidden">Back to Menu</button>
       </div>
 
+      <!-- Leaderboard table content -->
       <div class="leaderboard-content hidden">
         <table class="leaderboard-table">
+          <!-- Table header -->
           <thead>
             <tr>
               <th>Rank</th>
+              <!-- Player ranking position -->
               <th>Player</th>
+              <!-- Player username -->
               <th>ID</th>
+              <!-- Player unique ID -->
               <th>Category</th>
+              <!-- Game category played -->
               <th>Time Left</th>
+              <!-- Remaining time when completed -->
               <th>Points</th>
+              <!-- Points scored -->
               <th>Tries</th>
+              <!-- Number of wrong attempts -->
             </tr>
           </thead>
+          <!-- Table body - populated dynamically by JavaScript -->
           <tbody></tbody>
         </table>
       </div>
 
+      <!-- Empty state display when no games have been played -->
       <div class="empty-state">
+        <!-- Game controller icon -->
         <div class="empty-state-icon">🎮</div>
+
+        <!-- Empty state title -->
         <h3>No Games Played Yet</h3>
+
+        <!-- Encouraging message for new players -->
         <p>
           Start playing to see your scores on the leaderboard!<br />Challenge
           your friends and climb to the top!
         </p>
+
+        <!-- Button to return to main menu from empty state -->
         <button class="control-btn menu hidden">Back to Menu</button>
       </div>
     </div>
+
+    <!-- ===== AUDIO SOUNDS SECTION ===== -->
+    <!-- Container for all game sound effects -->
     <div class="sounds">
+      <!-- Button click sound -->
       <audio id="click" src="sounds/click.mp3" preload="auto"></audio>
+
+      <!-- Game start background music -->
       <audio id="start-game" src="sounds/start game.mp3" preload="auto"></audio>
+
+      <!-- Successful match sound -->
       <audio id="success" src="sounds/success.mp3" preload="auto"></audio>
+
+      <!-- Failed match attempt sound -->
       <audio id="fail" src="sounds/fail.mp3" preload="auto"></audio>
+
+      <!-- Game completion success sound -->
       <audio
         id="good-result"
         src="sounds/goodresult.mp3"
         preload="auto"
       ></audio>
+
+      <!-- Warning sound when time is running low -->
       <audio
         id="last-minutes"
         src="sounds/last minutes.mp3"
         preload="auto"
       ></audio>
+
+      <!-- Time's up sound -->
       <audio id="timeout" src="sounds/timeout.mp3" preload="auto"></audio>
     </div>
+
+    <!-- ===== JAVASCRIPT INCLUSION ===== -->
+    <!-- Main JavaScript file containing all game logic -->
     <script src="main.js"></script>
   </body>
 </html>
