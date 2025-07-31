@@ -34,6 +34,10 @@ Start a new game instantly with the same player name — great for improving you
 🆔 **Unique Player ID Generation**
 Every player gets a unique ID saved with their record in the leaderboard — ensuring identity consistency and fun comparisons.
 
+🧑‍🎮 **Old Player Login (Play with Your ID)**
+Now you can play as a returning player by entering your previously generated **Player ID**.  
+This keeps your username and progress consistent across multiple sessions, making it easier to track your improvement and compare scores.
+
 📊 **Smart Leaderboard Sorting**
 Leaderboard auto-sorts by points, time left, and tries — letting you see who's truly the best.
 
